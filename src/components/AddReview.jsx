@@ -1,4 +1,4 @@
-
+import Swal from 'sweetalert2'
 
 const AddReview = () => {
     const handleAddReview = event => {
@@ -14,6 +14,26 @@ const AddReview = () => {
 
         const newAddReview = { photo, name, review, rating, publishing }
         console.log(newAddReview)
+
+        fetch('http://localhost:5000/review', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newAddReview)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Review submit successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                  })
+            }
+        })
     }
     
     return (

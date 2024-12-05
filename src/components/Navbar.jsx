@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
     return (
         <div>
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-orange-100">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -29,7 +29,7 @@ const Navbar = () => {
         <Link to="/all-reviews">All Reviews</Link>
         <Link to="/add-review">Add Review</Link>
         <Link to="/my-review">My Reviews </Link>
-        <Link to="/game-list">Game WatchList </Link>
+        <Link to="/game-list">Game-WatchList </Link>
         <Link to="/login">Login</Link>
         <li>
           <a>Parent</a>
@@ -40,15 +40,15 @@ const Navbar = () => {
         </li>
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl">GameZone</a>
+    <a className="btn btn-ghost font-bold text-xl text-red-700">GameZone</a>
   </div>
   <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1 gap-5">
+    <ul className="menu menu-horizontal px-1 gap-5 font-semibold mt-4">
         <Link to="/">Home</Link>
         <Link to="/all-reviews">All Reviews</Link>
         <Link to="/add-review">Add Review</Link>
         <Link to="/my-review">My Reviews </Link>
-        <Link to="/game-list">Game WatchList </Link>
+        <Link to="/game-list">Game-WatchList </Link>
         <Link to="/login">Login</Link>
       <li>
         <details>
