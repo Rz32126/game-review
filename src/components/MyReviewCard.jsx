@@ -2,7 +2,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const MyReviewCard = ({myReview}) => {
+const MyReviewCard = ({ myReview, setReviews, myReviews }) => {
 
    const handleDelete = _id => {
         // console.log(_id)
@@ -29,6 +29,8 @@ const MyReviewCard = ({myReview}) => {
                     text: "Your review has been deleted.",
                     icon: "success"
                   });
+                  const remaining = myReviews.filter(myReview => myReview._id !== _id);
+                  setReviews(remaining);
               }
             })
           }

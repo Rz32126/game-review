@@ -11,7 +11,7 @@ const ReviewCard = ({review}) => {
   <figure>
     <img
       src={photo}
-      className="w-48 h-60 mb-3 mx-14 rounded-md mt-3"
+      className="w-48 h-60 mb-3 mx-14 rounded-md mt-3 object-cover"
       alt="Album"/>
   </figure>
   <div className="flex justify-around w-full mt-6">

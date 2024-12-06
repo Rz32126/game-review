@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 const UpdateReview = () => {
     const update = useLoaderData();
     // console.log(update)
-    const { photo, name, review, rating, publishing } = update
+    const { _id, photo, name, review, rating, publishing } = update
     const handleUpdateReview = event => {
         event.preventDefault()
 
@@ -30,7 +30,7 @@ const UpdateReview = () => {
         .then(res => res.json())
         .then(data => {
             console.log(data);
-            if(data.insertedId){
+            if(data.modifiedCount > 0){
                 Swal.fire({
                     title: 'Success!',
                     text: 'Review Update successfully',
