@@ -14,6 +14,7 @@ import MyReview from './components/MyReview.jsx';
 import GameList from './components/GameList.jsx';
 import Home from './components/Home.jsx';
 import UpdateReview from './components/UpdateReview.jsx';
+import ExploreDetails from './components/ExploreDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -42,10 +43,17 @@ const router = createBrowserRouter([
       {
         path: "/game-list",
         element: <GameList></GameList>,
+        loader: () => fetch('http://localhost:5000/review')
       },
       {
         path: "/update-review/:id",
         element: <UpdateReview></UpdateReview>,
+        loader: ({params}) => fetch(`http://localhost:5000/review/${params.id}`)
+
+      },
+      {
+        path: "/details/:id",
+        element: <ExploreDetails></ExploreDetails>,
         loader: ({params}) => fetch(`http://localhost:5000/review/${params.id}`)
 
       },

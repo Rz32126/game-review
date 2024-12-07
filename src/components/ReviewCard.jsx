@@ -1,9 +1,10 @@
 import { CiFacebook } from "react-icons/ci";
 import { CiTwitter } from "react-icons/ci";
+import { Link } from "react-router-dom";
 
 const ReviewCard = ({review}) => {
 
-    const { photo, name, rating, publishing } = review
+    const { _id, photo, name, rating, publishing } = review
 
     return (
         <div>
@@ -19,7 +20,7 @@ const ReviewCard = ({review}) => {
          <h2 className="card-title">Name: {name}</h2>
          <p>Rating: {rating}</p>
          <p>Publishing-Year: {publishing}</p>
-         <button className="btn bg-orange-500 w-36 mt-5">Explore Details</button>
+         <Link to={`/details/${_id}`} className="btn bg-orange-500 w-36 mt-5">Explore Details</Link>
     </div>
     <div className="card-actions justify-end">
     <div className="join join-vertical space-y-3">
