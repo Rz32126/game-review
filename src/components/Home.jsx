@@ -1,6 +1,8 @@
 import { Outlet, useLoaderData } from 'react-router-dom';
 import Banner from './Banner';
 import HomeCard from './HomeCard';
+import MostPlay from './MostPlay';
+import Upcoming from './Upcoming';
 
 
 const Home = () => {
@@ -16,6 +18,8 @@ const Home = () => {
                 homeCards.slice(0, 6).map(homeCard => <HomeCard key={homeCard._id} homeCard={homeCard}></HomeCard>)
              }
            </div>
+           <MostPlay></MostPlay>
+           <Upcoming></Upcoming>
         </div>
         
     );

@@ -15,6 +15,9 @@ import GameList from './components/GameList.jsx';
 import Home from './components/Home.jsx';
 import UpdateReview from './components/UpdateReview.jsx';
 import ExploreDetails from './components/ExploreDetails.jsx';
+import Login from './components/Login.jsx';
+import Register from './components/Register.jsx';
+import AuthProvider from './providers/AuthProvider.jsx';
 
 const router = createBrowserRouter([
   {
@@ -57,16 +60,24 @@ const router = createBrowserRouter([
         loader: ({params}) => fetch(`http://localhost:5000/review/${params.id}`)
 
       },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
 
     ]
   },
   // {
-  //   path: "/all-reviews",
-  //   element: <AllReviews></AllReviews>,
+  //   path: "/login",
+  //   element: <Login></Login>,
   // },
   // {
-  //   path: "/add-review",
-  //   element: <AddReview></AddReview>,
+  //   path: "/register",
+  //   element: <Register></Register>,
   // },
   // {
   //   path: "/my-review",
@@ -92,6 +103,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>,
 )
