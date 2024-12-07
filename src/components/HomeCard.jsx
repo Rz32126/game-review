@@ -1,9 +1,10 @@
 import { CiFacebook } from "react-icons/ci";
 import { CiTwitter } from "react-icons/ci";
 import { FcLike } from "react-icons/fc";
+import { Link } from "react-router-dom";
 
 const HomeCard = ({ homeCard }) => {
-    const { photo, name, rating, } = homeCard
+    const { _id, photo, name, rating, } = homeCard
     return (
         <div>
       <div className="card lg:card-side bg-orange-300 mb-3">
@@ -18,7 +19,7 @@ const HomeCard = ({ homeCard }) => {
          <h2 className="card-title text-red-600">Name: {name}</h2>
          <p>Rating: {rating}</p>
          <p className="flex mt-2">2 days ago : 7k<span className="mt-1 ml-2"><FcLike /></span></p>
-         <button className="btn bg-orange-600 text-white w-36 mt-5">Explore Details</button>
+         <Link to={`/details/${_id}`} className="btn bg-orange-600 text-white w-36 mt-5">Explore Details</Link>
     </div>
     <div className="card-actions justify-end">
     <div className="join join-vertical space-y-3">

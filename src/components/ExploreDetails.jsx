@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { CiFacebook, CiTwitter } from 'react-icons/ci';
 import { useLoaderData } from 'react-router-dom';
+// import GameList from './GameList';
+
 
 const ExploreDetails = () => {
     const details = useLoaderData()
@@ -45,8 +47,13 @@ const ExploreDetails = () => {
         <button className="font-bold text-white">Share the Game</button>
         <button className="btn text-sky-600 text-2xl font-bold bg-blue-200"><CiFacebook /><CiTwitter /></button>
         <button onClick={()=>handleSelectedReview(details)} className="btn text-green-600 font-bold bg-blue-200">Add to Watch-list</button>
+
+        {/* <div>
+        <GameList selectedReviews={selectedReviews}></GameList>
+        </div> */}
    </div>
     </div>
+       
   </div>
 </div> 
         </div>
