@@ -19,6 +19,7 @@ import Login from './components/Login.jsx';
 import Register from './components/Register.jsx';
 import AuthProvider from './providers/AuthProvider.jsx';
 import DataProvider from './providers/DataProvider.jsx'
+import PrivetRoute from './components/PrivetRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -37,16 +38,22 @@ const router = createBrowserRouter([
       },
       {
         path: "/add-review",
-        element: <AddReview></AddReview>,
+        element: (<PrivetRoute>
+          <AddReview></AddReview>
+        </PrivetRoute>)
       },
       {
         path: "/my-review",
-        element: <MyReview></MyReview>,
+        element: (<PrivetRoute>
+            <MyReview></MyReview>
+        </PrivetRoute>),
         loader: () => fetch('http://localhost:5000/review')
       },
       {
         path: "/game-list",
-        element: <GameList></GameList>,
+        element: (<PrivetRoute>
+           <GameList></GameList>
+        </PrivetRoute>),
         loader: () => fetch('http://localhost:5000/users')
       },
       {

@@ -1,12 +1,12 @@
-import { Link } from 'react-router-dom';
-import { useContext } from "react";
+import { Link, useNavigate } from 'react-router-dom';
+import { useContext, useState } from "react";
 import { AuthContext } from '../providers/AuthProvider';
  
 const Register = () => {
     
-    const { createNewUser, setUser } = useContext(AuthContext);
-    // const navigate = useNavigate();
-    // const [error, setError] = useState({});
+    const { createNewUser, setUser, updateUserProfile, } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const [error, setError] = useState({});
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -17,18 +17,29 @@ const Register = () => {
         const password = form.get("password");
         console.log({ email, name, photo, password});
 
-        // if (password.length < 6) {
-        //     setError({...error, password: "Password must be more than 6 characters"});
-        //     return;
-        // }
-
-       
-        // setError({});
+        if (password.length < 6) {
+          setError({...error, password: "Password must be more than 6 characters"});
+          return;
+      }
+      
+      const hasUpperCase = /[A-Z]/.test(password);
+      const hasLowerCase = /[a-z]/.test(password);
+      
+      if (!hasUpperCase || !hasLowerCase) {
+          setError({...error, password: "Password must contain at least one uppercase and one lowercase letter"});
+          return;
+      }
 
         createNewUser(email, password)
             .then((result) => {
                 const user = result.user;
                 setUser(user);
+                updateUserProfile({ displayName: name, photoURL: photo})
+                .then(() => {
+                    navigate("/")
+                }).catch(err=>{
+                  console.log(err);
+                })
                 // console.log(user)
 
                 // const lastLoginTime = result?.user?.metadata?.lastLoginTime;
@@ -99,7 +110,7 @@ const Register = () => {
           <input name="password"
            type="password"
             placeholder="password" className="input input-bordered" required />
-            {/* {error.password && <label className="label text-red-600">{error.password}</label>} */}
+            {error.password && <label className="label text-red-600">{error.password}</label>}
         </div>
         {/* {error.general && <label className="label text-red-600">{error.general}</label>} */}
 
