@@ -18,7 +18,7 @@ import ExploreDetails from './components/ExploreDetails.jsx';
 import Login from './components/Login.jsx';
 import Register from './components/Register.jsx';
 import AuthProvider from './providers/AuthProvider.jsx';
-import DataProvider from './providers/DataProvider.jsx';
+import DataProvider from './providers/DataProvider.jsx'
 
 const router = createBrowserRouter([
   {
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:5000/review')
+        loader: () => fetch('http://localhost:5000/review'),
       },
       {
         path: "/all-reviews",
@@ -47,7 +47,7 @@ const router = createBrowserRouter([
       {
         path: "/game-list",
         element: <GameList></GameList>,
-        loader: () => fetch('http://localhost:5000/review')
+        loader: () => fetch('http://localhost:5000/users')
       },
       {
         path: "/update-review/:id",
@@ -72,30 +72,7 @@ const router = createBrowserRouter([
 
     ]
   },
-  // {
-  //   path: "/login",
-  //   element: <Login></Login>,
-  // },
-  // {
-  //   path: "/register",
-  //   element: <Register></Register>,
-  // },
-  // {
-  //   path: "/my-review",
-  //   element: <MyReview></MyReview>,
-  // },
-  // {
-  //   path: "/game-list",
-  //   element: <GameList></GameList>,
-  // },
-  // {
-  //   path: "/login",
-  //   element: <Login></Login>,
-  // },
-  // {
-  //   path: "/register",
-  //   element: 
-  // },
+  
   {
     path: "*",
     element: <Error></Error>,

@@ -4,6 +4,10 @@ import { DataContext } from '../providers/DataProvider';
 
 const GameList = () => {
 
+    // const loadedUsers = useLoaderData()
+    // console.log(loadedUsers)
+    // const [users, setUsers] = useState(loadedUsers);
+
     const {selectedReviews} = useContext(DataContext)
   
     return (
@@ -22,10 +26,9 @@ const GameList = () => {
          <h2 className="card-title text-white text-2xl">Name: {review.name}</h2>
          <p>Review: {review.review}</p>
          <div className='flex gap-2'>
-         <img src={review.photo} className='rounded-full w-12 h-12 object-cover'></img>
          <p className='mt-4'>Name: Jone tellas</p>
          </div>
-         <p>Email: Jonetell34@gmail.com</p>
+         <p>Email: user@.com </p>
 
     </div>
     <div className="card-actions justify-end">

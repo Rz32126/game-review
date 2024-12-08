@@ -48,6 +48,8 @@ const Navbar = () => {
         <Link to="/add-review">Add Review</Link>
         <Link to="/my-review">My Reviews </Link>
         <Link to="/game-list">Game-WatchList </Link>
+        <Link to="/">Users </Link>
+
       <li>
         <details>
           <summary>Parent</summary>

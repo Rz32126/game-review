@@ -1,9 +1,9 @@
-import React from 'react';
+
 
 const MostPlay = () => {
     return (
         <div>
-            new are ok
+           <h1>Here You can Find Most Played Game</h1>
         </div>
     );
 };
