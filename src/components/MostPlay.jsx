@@ -16,7 +16,7 @@ const MostPlay = () => {
         </th>
         <th>Name</th>
         <th>Job</th>
-        <th>Favorite Color</th>
+        <th>Favorite Game</th>
         <th></th>
       </tr>
     </thead>
@@ -48,7 +48,7 @@ const MostPlay = () => {
           <br />
           <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
         </td>
-        <td>Purple</td>
+        <td>Candy Boom</td>
         <th>
           <button className="btn btn-ghost btn-xs">details</button>
         </th>
@@ -80,7 +80,7 @@ const MostPlay = () => {
           <br />
           <span className="badge badge-ghost badge-sm">Tax Accountant</span>
         </td>
-        <td>Red</td>
+        <td>Doom</td>
         <th>
           <button className="btn btn-ghost btn-xs">details</button>
         </th>
@@ -112,7 +112,7 @@ const MostPlay = () => {
           <br />
           <span className="badge badge-ghost badge-sm">Office Assistant I</span>
         </td>
-        <td>Crimson</td>
+        <td>Pabjii</td>
         <th>
           <button className="btn btn-ghost btn-xs">details</button>
         </th>
@@ -140,7 +140,7 @@ const MostPlay = () => {
           </div>
         </td>
         <td>
-          Wyman-Ledner
+          
           <br />
           <span className="badge badge-ghost badge-sm">Community Outreach Specialist</span>
         </td>
@@ -152,13 +152,6 @@ const MostPlay = () => {
     </tbody>
     {/* foot */}
     <tfoot>
-      <tr>
-        <th></th>
-        <th>Name</th>
-        <th>Job</th>
-        <th>Favorite Color</th>
-        <th></th>
-      </tr>
     </tfoot>
   </table>
 </div>
