@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useContext, useState } from "react";
 import { AuthContext } from '../providers/AuthProvider';
+import Swal from 'sweetalert2';
  
 const Register = () => {
     
@@ -34,39 +35,26 @@ const Register = () => {
             .then((result) => {
                 const user = result.user;
                 setUser(user);
-                updateUserProfile({ displayName: name, photoURL: photo})
-                .then(() => {
-                    navigate("/")
-                }).catch(err=>{
-                  console.log(err);
-                })
-                // console.log(user)
-
-                // const lastLoginTime = result?.user?.metadata?.lastLoginTime;
-
-                // const loginInfo = {email, lastLoginTime};
-
-                // fetch(`http://localhost:5000/users/${email}`, {
-                //     method: 'PATCH',
-                //     headers: {
-                //         'content-type': 'application/json'
-                //     },
-                //     body: JSON.stringify(loginInfo)
-                // })
-                // .then(res=> res.json())
-                // .then(data => {
-                //     console.log('register', data)
-                // })
-                
-                // updateUserProfile({ displayName: name, photoURL: photo })
-                // .then(() => {
-                //     toast.success("Registration Successful!");
-                //     navigate("/");
-                // })
-                // .catch(err => {
-                //     toast.error("Failed to update profile: " + err.message);
-                // });
+                    fetch('http://localhost:5000/users', {
+               method: 'POST',
+               headers: {
+                'content-type': 'application/json'
+               },
+               body: JSON.stringify(user)
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data.insertedId){
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Email added successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                      })
+                }
+            })
         })
+
         
         .catch((error) => {
             const errorCode = error.code;

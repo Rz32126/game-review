@@ -25,30 +25,21 @@ const Login = () => {
           navigate(location?.state? location.state : "/");
         })
 
-        // createNewUser(email,password)
-        // .then(result => {
-        //     console.log(result.user)
-        //     const newUser = { email }
+          const lastLoginTime = result?.user?.metadata?.lastLoginTime;
 
-        //     fetch('http://localhost:5000/users', {
-        //        method: 'POST',
-        //        headers: {
-        //         'content-type': 'application/json'
-        //        },
-        //        body: JSON.stringify(newUser)
-        //     })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         if(data.insertedId){
-        //             Swal.fire({
-        //                 title: 'Success!',
-        //                 text: 'Email added successfully',
-        //                 icon: 'success',
-        //                 confirmButtonText: 'Cool'
-        //               })
-        //         }
-        //     })
-        // })
+                const loginInfo = {email, lastLoginTime};
+
+                fetch(`http://localhost:5000/users/${email}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(loginInfo)
+                })
+                .then(res=> res.json())
+                .then(data => {
+                    console.log('register', data)
+                })
         .catch (err => {
             setError({...error, login: err.code});
         })
