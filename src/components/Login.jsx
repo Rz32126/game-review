@@ -48,7 +48,7 @@ const Login = () => {
         <div>
             <div className="hero bg-base-200 mt-5">
   <div className="hero-content flex-col lg:flex-row-reverse">
-    <div className="card bg-green-500 w-full max-w-sm shrink-0 shadow-2xl">
+    <div className="card bg-gray-400 w-full max-w-sm shrink-0 shadow-2xl">
       <form onSubmit={handleSubmit} className="card-body">
         <div className="form-control">
             <h1 className="font-bold text-center text-blue-800 text-xl">Login Form</h1>
@@ -74,9 +74,9 @@ const Login = () => {
             placeholder="password" className="input input-bordered" required />
         </div>
         <div className="form-control mt-6">
-          <button className="btn bg-sky-500">Login</button>
+          <button className="btn bg-blue-700 text-white">Login</button>
           <button
-             className="mt-2 btn bg-gray-300 text-orange-500">
+             className="mt-2 btn bg-gray-300 text-green-500">
             <FaGoogle /> Login With Google
          </button>
         </div>

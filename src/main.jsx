@@ -18,6 +18,7 @@ import ExploreDetails from './components/ExploreDetails.jsx';
 import Login from './components/Login.jsx';
 import Register from './components/Register.jsx';
 import AuthProvider from './providers/AuthProvider.jsx';
+import DataProvider from './providers/DataProvider.jsx';
 
 const router = createBrowserRouter([
   {
@@ -104,7 +105,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+      <DataProvider>
+        <RouterProvider router={router} />
+      </DataProvider>
     </AuthProvider>
   </StrictMode>,
 )

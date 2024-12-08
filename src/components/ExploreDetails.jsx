@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useContext } from 'react';
 import { CiFacebook, CiTwitter } from 'react-icons/ci';
 import { useLoaderData } from 'react-router-dom';
+import { DataContext } from '../providers/DataProvider';
 // import GameList from './GameList';
 
 
@@ -10,14 +12,8 @@ const ExploreDetails = () => {
 
     const { _id, photo, name, review, rating, publishing } = details
 
-    const [selectedReviews, setSelectedReview] = useState([])
-
-    const handleSelectedReview = (watchList) => {
-    //    console.log(watchList)
-      const addWatchList = [...selectedReviews,watchList];
-      setSelectedReview(addWatchList)
-    }
-
+    const {handleSelectedReview,selectedReviews} = useContext(DataContext)
+    console.log(handleSelectedReview,selectedReviews)
 
     return (
         <div>
