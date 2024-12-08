@@ -1,8 +1,12 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 
 
 const Navbar = () => {
+
+  const { user, logOut } = useContext(AuthContext);
     return (
         <div>
             <div className="navbar bg-orange-300">
@@ -30,13 +34,6 @@ const Navbar = () => {
         <Link to="/add-review">Add Review</Link>
         <Link to="/my-review">My Reviews </Link>
         <Link to="/game-list">Game-WatchList </Link>
-        <li>
-          <a>Parent</a>
-          <ul className="p-2">
-            <li><a>Rating</a></li>
-            <li><a>Year</a></li>
-          </ul>
-        </li>
       </ul>
     </div>
     <a className="btn btn-ghost font-bold text-xl text-red-700">GameZone</a>
@@ -48,22 +45,13 @@ const Navbar = () => {
         <Link to="/add-review">Add Review</Link>
         <Link to="/my-review">My Reviews </Link>
         <Link to="/game-list">Game-WatchList </Link>
-        <Link to="/">Users </Link>
-
-      <li>
-        <details>
-          <summary>Parent</summary>
-          <ul className="p-2">
-            <li><a>Rating</a></li>
-            <li><a>Year</a></li>
-          </ul>
-        </details>
-      </li>
     </ul>
   </div>
   <div className="navbar-end gap-2">
-    <Link to="/login" className="btn bg-green-600 text-white">Login</Link>
-    <a className="btn bg-red-500 text-white">Logout</a>
+    <div>{user && user.email}</div>
+    {
+      user && user?.email?  <button onClick={logOut} className="btn bg-red-500 text-white">Logout</button> : <Link to="/login" className="btn bg-green-600 text-white">Login</Link>
+    }
   </div>
 </div>      
         </div>

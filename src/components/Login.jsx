@@ -6,42 +6,47 @@ import Swal from 'sweetalert2';
 
 const Login = () => {
 
-    const {createNewUser} = useContext(AuthContext)
+    const { userLogin,setUser } = useContext(AuthContext)
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
-        const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
         console.log({email, password});
 
-        createNewUser(email,password)
+        userLogin(email,password)
         .then(result => {
-            console.log(result.user)
-            const newUser = { email }
-
-            fetch('http://localhost:5000/users', {
-               method: 'POST',
-               headers: {
-                'content-type': 'application/json'
-               },
-               body: JSON.stringify(newUser)
-            })
-            .then(res => res.json())
-            .then(data => {
-                if(data.insertedId){
-                    Swal.fire({
-                        title: 'Success!',
-                        text: 'Email added successfully',
-                        icon: 'success',
-                        confirmButtonText: 'Cool'
-                      })
-                }
-            })
+          const user = result.user;
+          setUser(user);
         })
+
+        // createNewUser(email,password)
+        // .then(result => {
+        //     console.log(result.user)
+        //     const newUser = { email }
+
+        //     fetch('http://localhost:5000/users', {
+        //        method: 'POST',
+        //        headers: {
+        //         'content-type': 'application/json'
+        //        },
+        //        body: JSON.stringify(newUser)
+        //     })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         if(data.insertedId){
+        //             Swal.fire({
+        //                 title: 'Success!',
+        //                 text: 'Email added successfully',
+        //                 icon: 'success',
+        //                 confirmButtonText: 'Cool'
+        //               })
+        //         }
+        //     })
+        // })
         .catch (error => {
-            console.log('error', error)
+            alert('error', error)
         })
     }
     return (
