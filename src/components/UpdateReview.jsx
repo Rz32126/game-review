@@ -20,7 +20,7 @@ const UpdateReview = () => {
         const newUpdateReview = { photo, name, review, rating, publishing }
         console.log(newUpdateReview)
 
-        fetch(`http://localhost:5000/review/${_id}`, {
+        fetch(`https://assignment-10-server-lime-five.vercel.app/review/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

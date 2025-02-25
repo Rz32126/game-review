@@ -29,12 +29,12 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:5000/review'),
+        loader: () => fetch('https://assignment-10-server-lime-five.vercel.app/review'),
       },
       {
         path: "/all-reviews",
         element: <AllReviews></AllReviews>,
-        loader: () => fetch('http://localhost:5000/review')
+        loader: () => fetch('https://assignment-10-server-lime-five.vercel.app/review')
       },
       {
         path: "/add-review",
@@ -47,25 +47,25 @@ const router = createBrowserRouter([
         element: (<PrivetRoute>
             <MyReview></MyReview>
         </PrivetRoute>),
-        loader: () => fetch('http://localhost:5000/review')
+        loader: () => fetch('https://assignment-10-server-lime-five.vercel.app/review')
       },
       {
         path: "/game-list",
         element: (<PrivetRoute>
            <GameList></GameList>
         </PrivetRoute>),
-        loader: () => fetch('http://localhost:5000/users')
+        loader: () => fetch('https://assignment-10-server-lime-five.vercel.app/users')
       },
       {
         path: "/update-review/:id",
         element: <UpdateReview></UpdateReview>,
-        loader: ({params}) => fetch(`http://localhost:5000/review/${params.id}`)
+        loader: ({params}) => fetch(`https://assignment-10-server-lime-five.vercel.app/review/${params.id}`)
 
       },
       {
         path: "/details/:id",
         element: <ExploreDetails></ExploreDetails>,
-        loader: ({params}) => fetch(`http://localhost:5000/review/${params.id}`)
+        loader: ({params}) => fetch(`https://assignment-10-server-lime-five.vercel.app/review/${params.id}`)
 
       },
       {

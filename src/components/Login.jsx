@@ -29,7 +29,7 @@ const Login = () => {
 
                 const loginInfo = {email, lastLoginTime};
 
-                fetch(`http://localhost:5000/users/${email}`, {
+                fetch(`https://assignment-10-server-lime-five.vercel.app/users/${email}`, {
                     method: 'PATCH',
                     headers: {
                         'content-type': 'application/json'

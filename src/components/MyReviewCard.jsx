@@ -17,7 +17,7 @@ const MyReviewCard = ({ myReview, setReviews, myReviews }) => {
         }).then((result) => {
           if (result.isConfirmed) {
 
-            fetch(`http://localhost:5000/review/${_id}`, {
+            fetch(`https://assignment-10-server-lime-five.vercel.app/review/${_id}`, {
               method: 'DELETE'
             })
             .then(res => res.json())

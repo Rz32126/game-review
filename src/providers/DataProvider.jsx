@@ -8,7 +8,7 @@ const DataProvider = ({ children }) => {
     const [selectedReviews, setSelectedReview] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/review')
+        fetch('https://assignment-10-server-lime-five.vercel.app/review')
         .then((res)=>res.json())
         .then((data)=>setSelectedReview(data))
     },[])

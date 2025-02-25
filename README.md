@@ -1,6 +1,6 @@
 # Chill Game Review Project
 
-Live-link:"https://i.ibb.co.com/CQ29FPm/Screenshot-2024-12-05-190328.png"
+Live-link:"https://assignment-ten-93892.web.app"
 
 You are a game lover. Come here you can find some highest rated game. You can choose your one and can also play!
 

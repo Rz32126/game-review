@@ -35,7 +35,7 @@ const Register = () => {
             .then((result) => {
                 const user = result.user;
                 setUser(user);
-                    fetch('http://localhost:5000/users', {
+                    fetch('https://assignment-10-server-lime-five.vercel.app/users', {
                method: 'POST',
                headers: {
                 'content-type': 'application/json'

@@ -15,7 +15,7 @@ const AddReview = () => {
         const newAddReview = { photo, name, review, rating, publishing }
         console.log(newAddReview)
 
-        fetch('http://localhost:5000/review', {
+        fetch('https://assignment-10-server-lime-five.vercel.app/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
